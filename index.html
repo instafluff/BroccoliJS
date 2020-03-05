@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+	<script src="web/blockly_compressed.js"></script>
+	<script src="web/blocks_compressed.js"></script>
+	<script src="web/javascript_compressed.js"></script>
+	<script src="web/msg/js/en.js"></script>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+	<div width="100%">
+		<textarea id="textarea" style="width:500px;"></textarea>
+	</div>
+	<div>
+		<div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+		<xml id="toolbox" style="display: none">
+			<category name="BROCCOLI">
+				<block type="broccoli_event"></block>
+			    <block type="broccoli_input"></block>
+				<block type="broccoli_send"></block>
+			</category>
+		    <category name="LOGIC" colour="%{BKY_LOGIC_HUE}">
+		      <block type="controls_if"></block>
+		      <block type="logic_compare"></block>
+		      <block type="logic_operation"></block>
+		      <block type="logic_negate"></block>
+		      <block type="logic_boolean"></block>
+		      <block type="logic_null"></block>
+		      <block type="logic_ternary"></block>
+		    </category>
+		    <category name="LOOPS" colour="%{BKY_LOOPS_HUE}">
+		      <block type="controls_repeat_ext">
+		        <value name="TIMES">
+		          <shadow type="math_number">
+		            <field name="NUM">10</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="controls_whileUntil"></block>
+		      <block type="controls_for">
+		        <value name="FROM">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		        <value name="TO">
+		          <shadow type="math_number">
+		            <field name="NUM">10</field>
+		          </shadow>
+		        </value>
+		        <value name="BY">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="controls_forEach"></block>
+		      <block type="controls_flow_statements"></block>
+		    </category>
+		    <category name="MATH" colour="%{BKY_MATH_HUE}">
+		      <block type="math_number">
+		        <field name="NUM">123</field>
+		      </block>
+		      <block type="math_arithmetic">
+		        <value name="A">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		        <value name="B">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_single">
+		        <value name="NUM">
+		          <shadow type="math_number">
+		            <field name="NUM">9</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_trig">
+		        <value name="NUM">
+		          <shadow type="math_number">
+		            <field name="NUM">45</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_constant"></block>
+		      <block type="math_number_property">
+		        <value name="NUMBER_TO_CHECK">
+		          <shadow type="math_number">
+		            <field name="NUM">0</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_round">
+		        <value name="NUM">
+		          <shadow type="math_number">
+		            <field name="NUM">3.1</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_on_list"></block>
+		      <block type="math_modulo">
+		        <value name="DIVIDEND">
+		          <shadow type="math_number">
+		            <field name="NUM">64</field>
+		          </shadow>
+		        </value>
+		        <value name="DIVISOR">
+		          <shadow type="math_number">
+		            <field name="NUM">10</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_constrain">
+		        <value name="VALUE">
+		          <shadow type="math_number">
+		            <field name="NUM">50</field>
+		          </shadow>
+		        </value>
+		        <value name="LOW">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		        <value name="HIGH">
+		          <shadow type="math_number">
+		            <field name="NUM">100</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_random_int">
+		        <value name="FROM">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		        <value name="TO">
+		          <shadow type="math_number">
+		            <field name="NUM">100</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="math_random_float"></block>
+		      <block type="math_atan2">
+		        <value name="X">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		        <value name="Y">
+		          <shadow type="math_number">
+		            <field name="NUM">1</field>
+		          </shadow>
+		        </value>
+		      </block>
+		    </category>
+		    <category name="TEXT" colour="%{BKY_TEXTS_HUE}">
+		      <block type="text"></block>
+		      <block type="text_join"></block>
+		      <block type="text_append">
+		        <value name="TEXT">
+		          <shadow type="text"></shadow>
+		        </value>
+		      </block>
+		      <block type="text_length">
+		        <value name="VALUE">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_isEmpty">
+		        <value name="VALUE">
+		          <shadow type="text">
+		            <field name="TEXT"></field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_indexOf">
+		        <value name="VALUE">
+		          <block type="variables_get">
+		            <field name="VAR">{textVariable}</field>
+		          </block>
+		        </value>
+		        <value name="FIND">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_charAt">
+		        <value name="VALUE">
+		          <block type="variables_get">
+		            <field name="VAR">{textVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="text_getSubstring">
+		        <value name="STRING">
+		          <block type="variables_get">
+		            <field name="VAR">{textVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="text_changeCase">
+		        <value name="TEXT">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_trim">
+		        <value name="TEXT">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_print">
+		        <value name="TEXT">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="text_prompt_ext">
+		        <value name="TEXT">
+		          <shadow type="text">
+		            <field name="TEXT">abc</field>
+		          </shadow>
+		        </value>
+		      </block>
+		    </category>
+		    <category name="LISTS" colour="%{BKY_LISTS_HUE}">
+		      <block type="lists_create_with">
+		        <mutation items="0"></mutation>
+		      </block>
+		      <block type="lists_create_with"></block>
+		      <block type="lists_repeat">
+		        <value name="NUM">
+		          <shadow type="math_number">
+		            <field name="NUM">5</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="lists_length"></block>
+		      <block type="lists_isEmpty"></block>
+		      <block type="lists_indexOf">
+		        <value name="VALUE">
+		          <block type="variables_get">
+		            <field name="VAR">{listVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="lists_getIndex">
+		        <value name="VALUE">
+		          <block type="variables_get">
+		            <field name="VAR">{listVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="lists_setIndex">
+		        <value name="LIST">
+		          <block type="variables_get">
+		            <field name="VAR">{listVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="lists_getSublist">
+		        <value name="LIST">
+		          <block type="variables_get">
+		            <field name="VAR">{listVariable}</field>
+		          </block>
+		        </value>
+		      </block>
+		      <block type="lists_split">
+		        <value name="DELIM">
+		          <shadow type="text">
+		            <field name="TEXT">,</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="lists_sort"></block>
+		    </category>
+		    <category name="COLOR" colour="%{BKY_COLOUR_HUE}">
+		      <block type="colour_picker"></block>
+		      <block type="colour_random"></block>
+		      <block type="colour_rgb">
+		        <value name="RED">
+		          <shadow type="math_number">
+		            <field name="NUM">100</field>
+		          </shadow>
+		        </value>
+		        <value name="GREEN">
+		          <shadow type="math_number">
+		            <field name="NUM">50</field>
+		          </shadow>
+		        </value>
+		        <value name="BLUE">
+		          <shadow type="math_number">
+		            <field name="NUM">0</field>
+		          </shadow>
+		        </value>
+		      </block>
+		      <block type="colour_blend">
+		        <value name="COLOUR1">
+		          <shadow type="colour_picker">
+		            <field name="COLOUR">#ff0000</field>
+		          </shadow>
+		        </value>
+		        <value name="COLOUR2">
+		          <shadow type="colour_picker">
+		            <field name="COLOUR">#3333ff</field>
+		          </shadow>
+		        </value>
+		        <value name="RATIO">
+		          <shadow type="math_number">
+		            <field name="NUM">0.5</field>
+		          </shadow>
+		        </value>
+		      </block>
+		    </category>
+		    <sep></sep>
+		    <category name="VARIABLES" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+		    <category name="FUNCTIONS" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
+		</xml>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script>
+	  var workspace = Blockly.inject('blocklyDiv',
+	      {toolbox: document.getElementById('toolbox')});
+
+	  function myUpdateFunction(event) {
+	  	var code = Blockly.JavaScript.workspaceToCode(workspace);
+	  	document.getElementById('textarea').value = code;
+	  }
+	  workspace.addChangeListener(myUpdateFunction);
+
+	  Blockly.Blocks['broccoli_send'] = {
+		  init: function() {
+			this.jsonInit({
+			  "type": "broccoli_send",
+			  "message0": "Broccoli Send %1 Output Data %2",
+			  "args0": [
+			    {
+			      "type": "input_value",
+			      "name": "NAME",
+			      "check": "String",
+			      "align": "RIGHT"
+			    },
+			    {
+			      "type": "input_value",
+			      "name": "VALUE",
+			      "align": "RIGHT"
+			    }
+			  ],
+			  "previousStatement": null,
+			  "nextStatement": null,
+			  "colour": 230,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+		    this.setColour(60);
+			this.setTooltip("");
+			this.setHelpUrl("Test!");
+		  }
+		};
+
+		Blockly.JavaScript['broccoli_send'] = function(block) {
+		  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+		  var value_value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+		  // TODO: Assemble JavaScript into code variable.
+		  var code = `Broccoli.Send( ${value_name}, ${value_value} )`;
+		  return code;
+		};
+
+		Blockly.Blocks['broccoli_event'] = {
+  		  init: function() {
+  			this.jsonInit({
+			  "type": "broccoli_event",
+			  "message0": "Broccoli Event %1 %2",
+			  "args0": [
+			    {
+			      "type": "input_value",
+			      "name": "NAME",
+			      "check": "String"
+			    },
+			    {
+			      "type": "input_statement",
+			      "name": "INPUT"
+			    }
+			  ],
+			  "colour": 60,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+  		    this.setColour(60);
+  			this.setTooltip("");
+  			this.setHelpUrl("Test!");
+  		  }
+  		};
+
+		Blockly.JavaScript['broccoli_event'] = function(block) {
+		  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+		  var statements_input = Blockly.JavaScript.statementToCode(block, 'INPUT');
+		  // TODO: Assemble JavaScript into code variable.
+		  var code = `Broccoli[ ${value_name} ] = ( data ) => {\n${statements_input}\n} );\n`;
+		  return code;
+		};
+
+		Blockly.Blocks['broccoli_input'] = {
+  		  init: function() {
+  			this.jsonInit({
+			  "type": "",
+			  "message0": "Broccoli Data %1",
+			  "args0": [
+			    {
+			      "type": "input_value",
+			      "name": "NAME",
+			      "check": "String"
+			    }
+			  ],
+			  "output": null,
+			  "colour": 60,
+			  "tooltip": "",
+			  "helpUrl": ""
+			});
+  		    this.setColour(60);
+  			this.setTooltip("");
+  			this.setHelpUrl("Test!");
+  		  }
+  		};
+
+		Blockly.JavaScript['broccoli_input'] = function(block) {
+		  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+		  // TODO: Assemble JavaScript into code variable.
+		  var code = `data[ ${value_name} ]`;
+		  // TODO: Change ORDER_NONE to the correct strength.
+		  return [code, Blockly.JavaScript.ORDER_NONE];
+		};
+
+		console.log( Blockly.Blocks );
+	</script>
+  </body>
+</html>

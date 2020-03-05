@@ -1,0 +1,33 @@
+{
+  "name": "broccolijs",
+  "version": "1.0.0",
+  "description": "Comfiest Way to Use Blockly for Coding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/instafluff/BroccoliJS.git"
+  },
+  "keywords": [
+    "Instafluff",
+    "Blockly",
+    "Broccoli",
+    "Brock",
+    "Officer",
+    "Jenny",
+    "Nurse",
+    "Joy",
+    "Coding"
+  ],
+  "author": "Instafluff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/instafluff/BroccoliJS/issues"
+  },
+  "homepage": "https://github.com/instafluff/BroccoliJS#readme",
+  "dependencies": {
+    "webwebweb": "^1.1.10"
+  }
+}
